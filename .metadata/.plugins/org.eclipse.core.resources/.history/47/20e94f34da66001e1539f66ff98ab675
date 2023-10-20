@@ -1,0 +1,19 @@
+package in.ashokit.beans;
+
+import java.util.ArrayList;
+
+public class SortingDemo {
+	
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> al = new ArrayList<>();
+		
+		al.add(10);
+		al.add(21);
+		al.add(32);
+		al.add(5);
+		al.add(8);
+		
+	}
+
+}

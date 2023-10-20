@@ -1,0 +1,11 @@
+package in.ashokit.beans;
+
+public class HindiGreeting implements Greeting {
+
+	@Override
+	public void greet() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

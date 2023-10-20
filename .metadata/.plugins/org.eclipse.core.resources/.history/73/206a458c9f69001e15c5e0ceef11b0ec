@@ -1,0 +1,20 @@
+server.port= 1212
+   #H2
+spring.db1.datasource.url=jdbc:h2:mem:appdb
+spring.db1.datasource.username=root
+spring.db1.datasource.password=root
+spring.db1.datasource.driver=org.h2.Driver
+
+#MySQL
+
+spring.db2.datasource.url=jdbc:mysql://localhost:3306/muti-db
+spring.db2.datasource.username=root
+spring.db2.datasource.password=root
+spring.db2.datasource.driver=com.mysql.cj.jdbc.Driver
+
+
+
+spring.jpa.show-sql =true
+
+#Auto table create
+spring.jpa.hibernate.ddl-auto=update

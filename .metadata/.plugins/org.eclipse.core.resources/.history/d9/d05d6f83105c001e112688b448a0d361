@@ -1,0 +1,26 @@
+package com.wipro.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class DemoController {
+
+	@GetMapping("/dashboard")
+	public String test1(Model model)
+	{
+		model.addAttribute("msg", "Dashboard under construction.....");
+		return "index";
+	}
+	
+	
+	@GetMapping("/test2")
+	public String test2(Model model)
+	{
+		//model.addAttribute("msg", "This is test2 () method");
+		//logic goes here
+		return "redirect:/dashboard";
+	}
+}
+

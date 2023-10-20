@@ -1,0 +1,51 @@
+package com.tcs.rest;
+
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.tcs.db1.entities.User;
+import com.tcs.db1.repositories.UserRepository;
+import com.tcs.db2.entities.Book;
+import com.tcs.db2.repositories.BookRepository;
+
+@RestController
+public class DemoRestController {
+	
+	@Autowired
+	private BookRepository bookRepo;
+	
+	@Autowired
+	private UserRepository userRepo;
+	
+	public String addData2DB()
+	{
+		
+		userRepo.saveAll(Stream.of(new User( 1, "Dev", "dev@gmail.com"), new User( 2, "Nil", "nil@gmail.com")
+				.collect(Collectors.toList())));
+		
+		bookRepo.saveAll(Stream.of(new Book(1, "Java", 500.00), new Book(2, "Python", 400.00)
+				.collect(Collectors.toList())));
+		
+		return "Data Added Successfully";
+	}
+	
+	@GetMapping("/users")
+	public List<User> getUsers()
+	{
+		return userRepo.findAll();
+		
+	}
+	
+	@GetMapping("/book")
+	public List<Book> getBooks()
+	{
+		return bookRepo.findAll();
+	}
+	
+	
+}

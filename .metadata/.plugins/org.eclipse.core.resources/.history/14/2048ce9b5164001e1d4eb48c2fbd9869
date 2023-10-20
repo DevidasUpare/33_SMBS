@@ -1,0 +1,19 @@
+package com.tcs.rest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.tcs.db1.repositories.UserRepository;
+import com.tcs.db2.repositories.BookRepository;
+
+@RestController
+public class DemoRestController {
+	
+	@Autowired
+	private BookRepository bookRepo;
+	
+	@Autowired
+	private UserRepository userRepo;
+	
+	
+}

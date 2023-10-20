@@ -1,0 +1,9 @@
+package in.ashokit.beans;
+
+public class WellWisher2
+{
+public static void wish(Greeting greeting)
+{
+	greeting.greet();
+}
+}

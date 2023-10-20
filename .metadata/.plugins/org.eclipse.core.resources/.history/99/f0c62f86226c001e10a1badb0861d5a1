@@ -1,0 +1,30 @@
+package com.tcs.rest;
+
+import org.springframework.data.redis.core.HashOperations;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.tcs.model.Book;
+
+@RestController
+public class BookRestController {
+	
+	private HashOperations<String, Integer, Book> opsForHash = null;
+	
+	public BookRestController(RedisTemplate<String, Book> redisTemplate) 
+	{
+		this.opsForHash = redisTemplate.opsForHash();
+		
+	}
+	@PostMapping("/book")
+	public ResponseEntity<String> addBook(@RequestBody Book book)
+	{
+		opsForHash.put("books", book.getBookId(), book);
+		
+		return new ResponseEntity<>("Book Saved", HttpStatus.CREATED);
+	}
+}

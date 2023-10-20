@@ -1,0 +1,12 @@
+spring:
+ application:
+   name: ashokitapp
+   datasource:
+   driver-class-name:
+   password: root
+   url:
+   username: root
+   mvc:
+   view:
+     prefix: /views
+     suffix: .jsp

@@ -1,0 +1,32 @@
+
+#configure port number
+server:
+  port: 8081
+ 
+ #configure name of our client app (for identity purpose)
+ #If we don't give name then show Unkown app name ...in service registry, admin server, zipkin server
+spring:
+  application:
+    name: WELCOME_API
+ 
+ #To register our client app with Admin Server, we put Admin server URL
+ #our application auto register with Eureka server because of port no. 8761 
+  boot:
+    admin:
+      client:
+        url: http://localhost:1111/
+        
+#To enable Actuators Endpoints our application(i want all the actuators endpoints for my application)      
+management:
+   endpoints:
+     web:
+       exposure:
+         include: '*'
+
+
+#when our Eureka  server app on another port no. then we manually connect with server app     
+#  eureka:
+#    client:
+#      serviceUrl:
+#        defaultZone: http://localhost:9090/eureka
+

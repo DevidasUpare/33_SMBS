@@ -1,0 +1,43 @@
+package com.wipro.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
+@Controller
+public class UserController {
+	
+	@GetMapping("/test")
+	public String test(HttpServletRequest req, Model model)
+	{
+		String name = req.getParameter("name");
+		System.out.println("Name :: "+ name);
+		HttpSession session=req.getSession();
+		model.addAttribute("msg", name);
+		return "index";
+	}
+}
+	
+	
+//
+//	@GetMapping("/login")
+//	public String login(HttpServletRequest req, Model model)
+//	{
+//		HttpSession session=req.getSession();
+//		session.setAttribute("name", name);
+//		model.addAttribute("msg","User logged in (session created)");
+//		
+//		return "index";
+//	}
+//	@GetMapping("/dashboard")
+//	public String dashboard(HttpServletRequest req, Model model)
+//	
+//	{
+//		
+//		
+//		return "index";
+//	}
+//	}
